@@ -8,13 +8,13 @@ response = requests.post(
     },
     files={"none": ''},
     data={
-        "prompt": "Lighthouse on a cliff overlooking the ocean",
+        "prompt": "Lighthouse on a cliff overlooking the ocean, the spectacle of modern life, essence of modernity, the sensation produced by a landscape, effects of changing light",
         "output_format": "jpeg",
-        "model": "sd3-large-turbo",
     },
 )
 
 if response.status_code == 200:
-    with open("./lighthouse.jpeg", 'wb') as file:,
+    with open("./lighthouse.jpeg", 'wb') as file:
+        file.write(response.content)
 else:
     raise Exception(str(response.json()))
